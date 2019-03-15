@@ -1,0 +1,61 @@
+/*导航*/
+.header {
+  height: 60px;
+  background: url(../images/header_bg.png) no-repeat;
+  background-size: 100% 100%;
+  border: 1px solid red;
+  background-color:blue; 
+}
+.header .logo {
+  font-size: 28px;
+  color: #ffffff;
+  line-height: 60px;
+  padding-left: 23px;
+  float: left;
+}
+.header .logo img {
+  padding-right: 10px;
+  vertical-align: -12px;
+}
+.header .nav {
+  float: right;
+}
+.header .nav ul {
+  height: 60px;
+  float: left;
+}
+.header .nav ul li {
+  float: left;
+  cursor: pointer;
+}
+.header .nav ul li.active {
+  background: #0693db;
+  border-bottom: 4px solid #ffc000;
+}
+.NavLi {
+  padding-top: 7px;
+}
+.NavLi img {
+  display: block;
+  margin: 2px auto;
+  width: 22px;
+}
+.NavLi .NavTheme {
+  line-height: 23px;
+  height: 23px;
+  font-size: 16px;
+  padding: 0 10px;
+  color: #ffffff;
+}
+.IndexMain {
+  height: 815px;
+  padding: 23px 60px;
+  overflow: hidden;
+  background: #f8fbff;
+  border: 1px solid yellowgreen;
+}
+.IndexMain .IndexMainTab {
+  width: 144px;
+  float: left;
+  height: 100%;
+}
