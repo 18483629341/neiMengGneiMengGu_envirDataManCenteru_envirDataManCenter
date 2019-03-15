@@ -68,7 +68,7 @@
             this.sideLength=$(element).width();
             //旋转路径是根据父元素的宽度的一半作为椭圆的X轴的半径
             this.rx = $(element).parent('.rotateBack').width() / 2;
-            this.ry = this.rx * 0.5; //0.5为y轴半径与x轴半径的比率；
+            this.ry = $(element).parent('.rotateBack').height() / 2;; //0.5为y轴半径与x轴半径的比率；
           //  this.turnOn = function(){turn();}
             this.turnOff = function () {}
             var turnOn=null;

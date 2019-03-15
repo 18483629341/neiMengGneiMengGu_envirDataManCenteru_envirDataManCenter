@@ -1,9 +1,9 @@
 var swidth=null;//获取屏幕的宽度
 function autoFit(){
 	swidth = $(window).width();
-   if(swidth > 1340 || swidth === 1340){
+    if(swidth >1000 || swidth === 1000){
 	   resize();
-   }
+    }
 }
 
 //整屏等比缩放

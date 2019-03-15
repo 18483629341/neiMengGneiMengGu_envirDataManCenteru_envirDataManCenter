@@ -56,30 +56,45 @@
 		color: #ffffff;
 	}
 }
-.IndexMain {
+/* section 部分*/
+.section {
 	height: 815px;
 	padding: 23px 60px;
 	overflow: hidden;
-	background: #f8fbff;
+	background: #04143b;
 	border:1px solid yellowgreen;
 }
 
-.IndexMain .IndexMainTab {
+.section .IndexMainTab {
 	width: 144px;
 	float: left;
 	height: 100%;
 }
 
 
-
 /* 旋转模块 */
-
-.rotateBack {
-	width: 740px;
-	height: 370px;
-	margin: 0 auto;
+.RotateBox{
+	width: 810px;
+	height: 390px;
+}
+.RotateBox.outer{
+	padding: 25px 33px;
+	background:url(../img/roll_wai.png);
+}
+.RotateBox.inner{
+	margin: 92px auto;
+    width: 470px;
+    height: 200px;
+    position: relative;
+    top: -388px;
+    background: url(../img/roll_nei.png);
+}
+.RotateParent {
+	width: 100%;
+	height:100%;
 	position: relative;
-	border-radius: 50%; background: lightpink;
+	border-radius: 50%;
+	border:1px solid red;
 	/* transform: rotateX(60deg) rotateZ(0deg); */
 }
 
@@ -92,10 +107,20 @@
 	transform: rotateX(60deg) rotateZ(0deg);
 }
 
-.rotateItem{
+.RotateItem{
 	width: 75px;
 	height: 75px;
 	background:url(../img/blue_roll.png);
+	background-size: 100% 100%;
+	position: absolute;
+	display: block;
+	border-radius: 50%;
+	z-index: 2;
+}
+.RotateItemInner{
+	width: 60px;
+	height: 60px;
+	background:url(../img/green_roll.png);
 	background-size: 100% 100%;
 	position: absolute;
 	display: block;
