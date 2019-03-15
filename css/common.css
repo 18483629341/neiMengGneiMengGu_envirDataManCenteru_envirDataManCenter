@@ -80,3 +80,44 @@ img {
 .icon {
   display: inline-block;
 }
+/* 框架布局*/
+.IndexMain {
+  height: 950px;
+  padding: 0 60px;
+}
+.IndexMain .ListBox {
+  width: 266px;
+  border: 1px solid lightblue;
+}
+.IndexMain .leftListBox {
+  margin-top: 25px;
+  width: 100px;
+  min-height: 720px;
+  border: 1px solid lightblue;
+}
+.IndexMain .LineList {
+  width: 165px;
+  border: 1px solid lightcoral;
+}
+.IndexMain .centerBox {
+  width: 920px;
+  border: 1px solid lightcoral;
+}
+.IndexMain .centerContent {
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid lawngreen;
+}
+.IndexMain .centerHeader {
+  height: 240px;
+  border: 1px solid #b9fc00;
+}
+.IndexMain .centerMain {
+  height: 470px;
+  border: 1px solid #b9fc00;
+}
+.footer {
+  width: 100%;
+  height: 50px;
+}
