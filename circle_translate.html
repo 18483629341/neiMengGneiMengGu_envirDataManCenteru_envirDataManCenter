@@ -6,6 +6,7 @@
     <title>围着椭圆/圆环旋转</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <style>
+        
         /* 3 */
 
         .rotateBack {
@@ -84,10 +85,23 @@
             //循环一次执行的方法
             this.turn=function(){
                 this.angle=this.angle+3;
+                var simpAngle=this.angle%360;
+                var radio=1;
+                if(simpAngle>=90&&simpAngle<=270){
+                    radio=(simpAngle-90)*(-1)*(1-this.minRadio)/180+1;
+                }else if(simpAngle>270){
+                    radio=(simpAngle-270)*(1-this.minRadio)/180+this.minRadio;
+                }else{
+                    console.log(simpAngle)
+                    radio=(simpAngle-(-90))*(1-this.minRadio)/180+this.minRadio;
+                }
+        
                 //0.017453293为角度转为弧度的比率值，1度=0.017453293弧度；Math.cos(x),x为弧度
                 $(element).css({
                     'left':this.rx*Math.cos(this.angle*0.017453293)+this.rx-this.sideLength/2+'px',
                     'top':this.ry*Math.sin(this.angle*0.017453293)+this.ry-this.sideLength/2+'px',
+                    'transform':'scale('+parseFloat(radio).toFixed(4)+')',
+			        "transformCenter":"center"
                 })
                // console.log('我又移动一次了');
             }

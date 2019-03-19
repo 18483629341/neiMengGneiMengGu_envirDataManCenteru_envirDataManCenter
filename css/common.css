@@ -64,55 +64,47 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Microsoft yahei';
-  height: 1080px;
-  width: 1920px;
-  overflow-x: hidden;
 }
 .body1 {
+  width: 1920px;
   overflow-y: scroll;
+  background: url(../img/all_bg.png);
+  background-size: 100% 100%;
+  overflow-x: hidden;
 }
-.body1::-webkit-scrollbar,
-.body2::-webkit-scrollbar {
+.body1::-webkit-scrollbar {
   display: none;
 }
 /* 框架布局*/
 .section {
-  height: 950px;
   padding: 0 60px;
 }
 .section .ListBox {
-  width: 266px;
-  border: 1px solid lightblue;
+  width: 268px;
 }
 .section .leftListBox {
-  margin-top: 25px;
   width: 100px;
   min-height: 720px;
-  border: 1px solid lightblue;
 }
 .section .LineList {
-  width: 165px;
-  border: 1px solid lightcoral;
+  width: 180px;
 }
 .section .centerBox {
-  width: 920px;
-  border: 1px solid lightcoral;
+  flex: 1;
 }
 .section .centerContent {
   width: 800px;
   height: 100%;
   margin: 0 auto;
-  border: 1px solid lawngreen;
 }
 .section .centerHeader {
-  height: 240px;
-  border: 1px solid #b9fc00;
+  height: 210px;
 }
 .section .centerMain {
-  height: 470px;
-  border: 1px solid #b9fc00;
+  height: 440px;
 }
 .footer {
   width: 100%;
+  padding: 0 60px;
   height: 50px;
 }

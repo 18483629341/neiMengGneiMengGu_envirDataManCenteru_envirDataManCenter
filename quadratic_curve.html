@@ -8,70 +8,68 @@
 	<meta name="author" content="@my_programmer">
 	<style type="text/css">
 		
-		canvas {
-			
-		}
-		.quadraticCurveBox{
+	
+		.QuadraticCurveBox{
 			margin: 20px;
 			width:180px;
 			height:720px;
 			position: relative;
 		}
-		.quadraticCurve{
+		.QuadraticCurve{
 			width: 180px;
 			height: 720px;
 			position: absolute;
 		}
-		.lightBox{
+		.LightBox{
 			width: 100%;
 			height: 100%;
 			z-index: 2;
 			position: relative;
 		}
-		.lineIcon{
+		.LineIcon{
 			display: inline-block;
 			width:30px ;
 			height:18px;
 			background: red;
 			position: absolute;
 		}
-		.lineIcon0{
+		.LineIcon0{
 			left:0;
 			top:36px;
 		}
-		.lineIcon1{
+		.LineIcon1{
 			left:0;
 			top:108px;
 		}
-		.lineIcon2{
+		.LineIcon2{
 			left:0;
 			top:180px;
 		}
-		.lineIcon3{
+		.LineIcon3{
 			left:0;
 			top:252px;
 		}
-		.lineIcon4{
+		.LineIcon4{
 			left:0;
 			top:324px;
 		}
-		.lineIcon5{
+		.LineIcon5{
 			left:0;
 			top:396px;
 		}
-		.lineIcon6{
+		.LineIcon6{
 			left:0;
 			top:468px;
 		}
-		.lineIcon7{
+		.LineIcon7{
 			left:0;
 			top:540px;
 		}
-		.lineIcon8{
+		.LineIcon8{
 			left:0;
 			top:612px;
 		}
-		.lineIcon9{
+		.LineIcon9{
 			left:0;
 			top:684px;
 		}
@@ -81,45 +79,47 @@
 
 <body onload="draw('canvas',10)">
 	<h1>二次贝塞尔曲线</h1>
-	<div class="quadraticCurveBox">
-	   <canvas  class="quadraticCurve" id="canvas" width=180 height=720 style="border: 1px solid #ccc;"></canvas>
-	   <div class="lightBox">
-		   <span class="lineIcon lineIcon0" id="lineIcon0"></span>
-		   <span class="lineIcon lineIcon1" id="lineIcon1"></span>
-		   <span class="lineIcon lineIcon2" id="lineIcon2"></span>
-		   <span class="lineIcon lineIcon3" id="lineIcon3"></span>
-		   <span class="lineIcon lineIcon4" id="lineIcon4"></span>
-		   <span class="lineIcon lineIcon5" id="lineIcon5"></span>
-		   <span class="lineIcon lineIcon6" id="lineIcon6"></span>
-		   <span class="lineIcon lineIcon7" id="lineIcon7"></span>
-		   <span class="lineIcon lineIcon8" id="lineIcon8"></span>
-		   <span class="lineIcon lineIcon9" id="lineIcon9"></span>
+	<div class="QuadraticCurveBox">
+	   <canvas  class="QuadraticCurve" id="canvas" width=180 height=720 style="border: 1px solid #ccc;"></canvas>
+	   <div class="LightBox" id="LightBox">
+		   <span class="LineIcon LineIcon0" id="LineIcon0"></span>
+		   <span class="LineIcon LineIcon1" id="LineIcon1"></span>
+		   <span class="LineIcon LineIcon2" id="LineIcon2"></span>
+		   <span class="LineIcon LineIcon3" id="LineIcon3"></span>
+		   <span class="LineIcon LineIcon4" id="LineIcon4"></span>
+		   <span class="LineIcon LineIcon5" id="LineIcon5"></span>
+		   <span class="LineIcon LineIcon6" id="LineIcon6"></span>
+		   <span class="LineIcon LineIcon7" id="LineIcon7"></span>
+		   <span class="LineIcon LineIcon8" id="LineIcon8"></span>
+		   <span class="LineIcon LineIcon9" id="LineIcon9"></span>
 	   </div>
 	   
 	</div>
 	
-
+	<script src="./js/jquery-3.3.1.min.js"></script>
 	<script>
+		//利用canvas绘制曲线
+		/**
+		* 
+		* @param {*} elementId 绘制曲线的canvas的ID
+		* @param {*} n         需要绘制曲线的数量
+		*/
 		function draw(elementId,n) {
 			var canvas = document.getElementById(elementId);
 			//var boxHeight=canvas.style.height;
 			//设置或得到整个canvas的高度
-			var boxHeight=720;         //canvas的高度 待完善
-			var boxWidth=180;          //canvas的宽度 待完善
+			var boxHeight=$('#'+elementId).height();         //canvas的高度 待完善
+			var boxWidth=$('#'+elementId).width();          //canvas的宽度 待完善
 			var perHeight=parseInt(boxHeight/n);
 			var centerY=parseInt(boxHeight/2);
-			console.log(boxHeight);
+			//console.log(boxHeight);
 			var context = canvas.getContext('2d');
-			//绘制起始点、控制点、终点 
-				context.beginPath();
-				context.moveTo(20, 170);
-				context.lineTo(130, 40);
-				context.lineTo(180, 150);
-				context.stroke(); 
+			
 			//绘制2次贝塞尔曲线 
 			
 			for(var i=0;i<n;i++){
 				var startY=perHeight/2+perHeight*i;
+			
 				context.beginPath();
 				context.moveTo(0, startY); //曲线绘制的起点
 				//quadraticCurveTo(cpx,cpy,x,y)　　//cpx，cpy表示控制点的坐标,x，y表示终点坐标；
@@ -127,64 +127,69 @@
 				context.quadraticCurveTo(20, centerY, boxWidth, centerY);
 				context.strokeStyle = "blue";//设置贝塞尔曲线的颜色
 			    context.stroke();
-			}
-		
-			
+			}	
 		}
 	</script>
-	<script src="./js/jquery-3.3.1.min.js"></script>
+	
 	<script>
-	    function LightLoop(element,n,i){
-			this.element=$(element);
-			this.boxHeight=720;         //与canvas的高度保持一致  待完善
+		//移动点的原型
+		/**
+		* 
+		* @param {*} elementId 移动点的id
+		* @param {*} n         总共移动点的数量
+		*/
+	    function LightLoop(elementId,n){
+			
+			this.boxHeight=$('#'+elementId).height();         //移动点的父元素的的高度  
+			this.boxWidth=$('#'+elementId).width();          //移动点的父元素的的宽度
 			this.perHeight=parseInt(this.boxHeight/n);
-			this.boxWidth=180;          //与canvas的宽度保持一致 待完善
-			//起点p0
-			this.startX=0;                                 //离canvas做左侧的水平距离            
-			this.startY=this.perHeight/2+this.perHeight*i; //离canvas顶部的垂直距离  
+			this.childWidth=$('#'+elementId).children().width();                   //移动点的的宽度    
+			this.childHeight=$('#'+elementId).children().height();                  //移动点的的高度
 			//控制点p1统一为
-			this.controlX=20;                            //离canvas做左侧的水平距离 统一为20；
-			this.controlY=this.boxHeight/2;             //垂直中心
+			this.controlX=20;                                          //离canvas做左侧的水平距离 统一为20；
+			this.controlY=this.boxHeight/2;                            //垂直中心
 			//终点p2统一为右边终点
 			this.endX=this.boxWidth;            
 			this.endY=this.boxHeight/2;//垂直中心
+			var radio=0;//贝塞尔曲线的比值
 			
-			var _this=this;
-		    var turnOn=setInterval(function(){
-				//顺时针旋转 ++，逆时针旋转  --
-				_this.turn();
+			this.turnOn=setInterval(function(){
+					//顺时针旋转 ++，逆时针旋转  --
+					_this.turn();
 			},1)
-			var t=0;//贝塞尔曲线的比值
+			var _this=this;
 			this.turn=function(){
-				if(t>=1){
-					t=0
+				if(radio>=1){
+					radio=0
 				}else{
-					t=t+0.0005;
+					radio=radio+0.0005;
 				}
-				//根据比值t变化计算点的坐标值；p=(1-t)*(1-t)p0+2*t*(1-t)*p1+t*t*p2;
-				var nowX=(1-t)*(1-t)*this.startX+2*t*(1-t)*this.controlX+t*t*this.endX;
-				var nowY=(1-t)*(1-t)*this.startY+2*t*(1-t)*this.controlY+t*t*this.endY;
-				//计算斜率，得到点的切线方向，得到角度
-				var k=[(1-t)*(this.controlY-this.startY)+t*(this.endY-this.controlY)]/[(1-t)*(this.controlX-this.startX)+t*(this.endX-this.controlX)];
-				//根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
-				var angle=Math.atan(k)/0.017453293;
-				$(element).css({
-					'left':nowX-15,
-					'top':nowY-9,
-					'transform':'rotate('+angle+'deg)'
-				});
-			}
+				for(var i=0;i<n;i++){
+					//起点p0
+					var obj={};
+					obj.startX=0;                                              //离canvas做左侧的水平距离            
+					obj.startY=this.perHeight/2+this.perHeight*i;             //离canvas顶部的垂直距离  
+					
+					//根据比值radio变化计算点的坐标值；p=(1-radio)*(1-radio)p0+2*radio*(1-radio)*p1+radio*radio*p2;
+					var nowX=(1-radio)*(1-radio)*obj.startX+2*radio*(1-radio)*this.controlX+radio*radio*this.endX;
+					var nowY=(1-radio)*(1-radio)*obj.startY+2*radio*(1-radio)*this.controlY+radio*radio*this.endY;
+					//计算斜率，得到点的切线方向，得到角度
+					var k=[(1-radio)*(this.controlY-obj.startY)+radio*(this.endY-this.controlY)]/[(1-radio)*(this.controlX-obj.startX)+radio*(this.endX-this.controlX)];
+					
+					//根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
+					var angle=Math.atan(k)/0.017453293;
+				    //console.log($('#'+elementId+' LineIcon:eq('+i+')'));
+					$('#'+elementId+' .LineIcon:eq('+i+')').css({
+						'left':nowX-this.childWidth/2,
+						'top':nowY-this.childHeight/2,
+						'transform':'rotate('+angle+'deg)'
+					});
+				}
+			}									
 		}
-		var lightLoop0=new LightLoop('#lineIcon0',10,0);
-		var lightLoop1=new LightLoop('#lineIcon1',10,1);
-		var lightLoop2=new LightLoop('#lineIcon2',10,2);
-		var lightLoop3=new LightLoop('#lineIcon3',10,3);
-		var lightLoop4=new LightLoop('#lineIcon4',10,4);
-		var lightLoop5=new LightLoop('#lineIcon5',10,5);
-		var lightLoop6=new LightLoop('#lineIcon6',10,6);
-		var lightLoop7=new LightLoop('#lineIcon7',10,7);
-		var lightLoop8=new LightLoop('#lineIcon8',10,8);
-		var lightLoop9=new LightLoop('#lineIcon9',10,9);
+
+		var lightLoop=new LightLoop('LightBox',10);
+		
 
 	</script>
 </body>
