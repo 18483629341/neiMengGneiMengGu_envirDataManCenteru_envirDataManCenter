@@ -232,13 +232,76 @@
   background: url(../img/top_bg.png) no-repeat;
 }
 .DownIconBox {
+  position: relative;
   width: 42px;
   height: 86px;
   margin: 0 auto;
   background: url(../img/down.png) no-repeat;
+  animation: downMove 5s infinite;
 }
-.UpSideDown {
+.DownIconBox.UpSideDown {
   transform: rotate(180deg);
+  animation: upMove 5s infinite;
+}
+@keyframes downMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+@-moz-keyframes downMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes downMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: -20px;
+    opacity: 1;
+  }
+}
+@keyframes upMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: -20px;
+    opacity: 1;
+  }
+}
+@-moz-keyframes upMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: -20px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes upMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: -20px;
+    opacity: 1;
+  }
 }
 /* 旋转模块  start*/
 .CenterMain {
@@ -401,6 +464,12 @@
   height: 86px;
   margin: 0 auto;
   background: url(../img/up.png) no-repeat;
+  position: relative;
+  animation: upMove 5s infinite;
+}
+.UpIconBox.UpSideDown {
+  transform: rotate(180deg);
+  animation: downMove 5s infinite;
 }
 .ListItem {
   width: 137px;
