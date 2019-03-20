@@ -238,11 +238,15 @@
   margin: 0 auto;
   background: url(../img/down.png) no-repeat;
 }
-.HeaderCon.rotate,
-.DownIconBox.rotate {
-  transform: rotate(180deg);
+.UpSideDown{
+	transform: rotate(180deg);
 }
 /* 旋转模块  start*/
+.CenterMain{
+	background: url('../img/roll_di.png') no-repeat;
+	background-size: 38%;
+  background-position: 50% 57%;
+}
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotateX(60deg) rotateZ(-180deg);

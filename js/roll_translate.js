@@ -21,7 +21,6 @@ function Roll(element) {
 			//顺时针旋转 ++，逆时针旋转  --
 			_this.turn();
 		},1)
-
 	}).trigger('mouseleave');
 	//循环一次执行的方法
 	this.turn=function(){
