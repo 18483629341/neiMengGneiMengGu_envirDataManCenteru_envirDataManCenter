@@ -73,7 +73,6 @@ function LightLoop(element, n,type) {
     this.perHeight = parseInt(this.boxHeight / n);
     this.childWidth = $(this.element).children().width();                   //移动点的子元素的宽度    
     this.childHeight = $(this.element).children().height();                 //移动点的子元素的高度
-    
     //控制点p1统一为
     this.controlX = 20;                                          //离canvas做左侧的水平距离 统一为20；
     //终点p2统一为右边终点
@@ -84,7 +83,8 @@ function LightLoop(element, n,type) {
     var _this = this;
     var LightTurnOn = setInterval(function () {
         _this.turn();
-    }, 10)
+    }, 40)
+
     this.turn = function () {
         if (this.radio >= 1) {
             this.radio = 0
@@ -129,14 +129,16 @@ function LightLoop(element, n,type) {
             });
         }
     }
-    this.setType=function(newType){                                  //重置光点移动方式
+
+     //重置光点移动方式
+    this.setType=function(newType){                                 
         this.type=newType;
         clearInterval(LightTurnOn);
         console.log(LightTurnOn);
         this.radio = 0;//重置曲线的绘制比值
         LightTurnOn = setInterval(function () {
             _this.turn();
-        }, 10)
+        }, 40)
         console.log(_this.turn());
     }
     

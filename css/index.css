@@ -228,7 +228,7 @@
 .HeaderCon {
   width: 437px;
   height: 91px;
-  margin: 20px auto;
+  margin: 20px auto 10px;
   background: url(../img/top_bg.png) no-repeat;
 }
 .DownIconBox {
@@ -455,7 +455,7 @@
 /* 旋转模块  end*/
 /* 中间底部 */
 .CenterBottom {
-  margin-top: -44px;
+  margin-top: -24px;
 }
 .LevelDataLi {
   width: 137px;
@@ -500,9 +500,6 @@
 }
 /* 中间底部 end*/
 /* footer */
-.footer {
-  margin-top: 30px;
-}
 .footer .point {
   min-width: 110px;
   padding: 0 10px;
