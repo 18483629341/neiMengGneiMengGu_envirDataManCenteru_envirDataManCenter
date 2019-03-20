@@ -142,4 +142,22 @@ function LightLoop(element, n,type) {
     
 }
 
+//循环播放中间球体数据
+function CenterValueLoop(){
+     var ListNumArr=['233,444','233,566','33,589'];
+     var KbNumArr=['789,233,444','677,233,566','556,533,589'];
+     var i=0;
+     //循环数据播放
+     setInterval(function(){
+        $('#ListNum').html(ListNumArr[i]);
+        $('#KbNum').html(KbNumArr[i]);
+        if(i>=ListNumArr.length){
+            i=0
+        }else{
+            i++;
+        }
+     },500)
+     
+};
+
 
