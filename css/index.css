@@ -381,6 +381,9 @@
   line-height: 28px;
   text-align: center;
 }
+.CenterRoll .CenterNum span {
+  color: #ffe400;
+}
 /* 旋转模块  end*/
 /* 中间底部 */
 .CenterBottom {

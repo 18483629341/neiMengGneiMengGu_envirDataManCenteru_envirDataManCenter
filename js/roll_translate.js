@@ -1,4 +1,4 @@
-/**
+/**   方式css3
  * 
  * @param {element} 需要旋转的元素的选择器
  * @param {angle} 初始位置所在的角度
@@ -51,5 +51,7 @@ function Roll(element) {
 		
 	}
 }
+
+
 
 
