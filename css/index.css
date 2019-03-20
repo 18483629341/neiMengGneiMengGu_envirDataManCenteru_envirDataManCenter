@@ -90,7 +90,7 @@
   font-weight: 700;
   height: 56px;
   line-height: 56px;
-  background: url('../img/left_bg.png');
+  background: url('../img/box_bg.png');
   background-size: 100% 100%;
 }
 .item {
@@ -230,7 +230,6 @@
   height: 91px;
   margin: 20px auto;
   background: url(../img/top_bg.png) no-repeat;
-  transform: rotate(0deg);
 }
 .DownIconBox {
   width: 42px;
@@ -238,13 +237,13 @@
   margin: 0 auto;
   background: url(../img/down.png) no-repeat;
 }
-.UpSideDown{
-	transform: rotate(180deg);
+.UpSideDown {
+  transform: rotate(180deg);
 }
 /* 旋转模块  start*/
-.CenterMain{
-	background: url('../img/roll_di.png') no-repeat;
-	background-size: 38%;
+.CenterMain {
+  background: url('../img/roll_di.png') no-repeat;
+  background-size: 38%;
   background-position: 50% 57%;
 }
 @-webkit-keyframes spin {
@@ -451,7 +450,7 @@
   height: 33px;
   left: 0%;
   background: url(../img/light.png) no-repeat;
-  margin-left: -10.5px;
+  margin-left: -10px;
   margin-top: -19px;
 }
 .footer .point:first-child {
