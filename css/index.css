@@ -77,8 +77,8 @@
 }
 /*列表部分 start*/
 .ListHeader {
-  margin-bottom: 25px;
-  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-top: 25px;
   width: 257px;
   height: 60px;
   line-height: 60px;
@@ -88,9 +88,10 @@
 }
 .ListLi {
   font-weight: 700;
-  height: 60px;
-  line-height: 60px;
+  height: 56px;
+  line-height: 56px;
   background: url('../img/left_bg.png');
+  background-size: 100% 100%;
 }
 .item {
   width: 49%;
@@ -134,36 +135,36 @@
   text-align: left;
 }
 .rightBox .ListLi + .ListLi {
-  margin-top: 35px;
+  margin-top: 34px;
 }
-.headerCon {
+.HeaderCon {
   line-height: 72px;
 }
-.headerCon .item {
+.HeaderCon .item {
   color: #00fff0;
   font-size: 22px;
   padding-left: 60px;
 }
-.headerCon .num {
+.HeaderCon .num {
   font-size: 22px;
   padding-right: 34px;
 }
 /*列表部分 end*/
 /* 绘制光点随着曲线移动  模块 start*/
 .QuadraticCurveBox {
-  margin-top: 117px;
+  margin-top: 96px;
   width: 180px;
-  height: 720px;
+  height: 684px;
   position: relative;
 }
 .QuadraticCurve {
   width: 180px;
-  height: 720px;
+  height: 684px;
   position: absolute;
 }
 .LightBox {
   width: 100%;
-  height: 720px;
+  height: 684px;
   z-index: 2;
   position: relative;
 }
@@ -218,7 +219,7 @@
   transform: rotate(180deg);
 }
 /*绘制光点随着曲线移动  模块 end*/
-.headerCon {
+.HeaderCon {
   width: 437px;
   height: 91px;
   margin: 20px auto;
@@ -263,13 +264,21 @@
   padding: 25px 30px;
   background: url(../img/roll_wai.png);
 }
+.RotateBox.outer .RotateItemMain {
+  width: 100%;
+  height: 100%;
+}
 .RotateBox.inner {
-  margin: 92px auto;
+  margin: 92px 167px;
   width: 470px;
   height: 200px;
   position: relative;
   top: -388px;
   background: url(../img/roll_nei.png);
+}
+.RotateBox.inner .RotateItemMain {
+  width: 100%;
+  height: 100%;
 }
 .RotateParent {
   width: 100%;
@@ -343,8 +352,8 @@
 }
 /* 旋转模块  end*/
 /* 中间底部 */
-.CenterBotom {
-  margin-top: -20px;
+.CenterBottom {
+  margin-top: -44px;
 }
 .LevelDataLi {
   width: 137px;
@@ -363,7 +372,7 @@
   width: 137px;
   height: 122px;
   text-align: center;
-  margin-top: -28px;
+  margin-top: -38px;
   background: url(../img/bom_bg.png) no-repeat;
   padding-top: 24px;
 }

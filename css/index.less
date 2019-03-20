@@ -92,8 +92,8 @@
 }
 /*列表部分 start*/
 .ListHeader{
-	margin-bottom:25px;
-	margin-top: 30px;
+	margin-bottom:10px;
+	margin-top: 25px;
 	width:257px;
 	height:60px;
 	line-height: 60px;
@@ -104,10 +104,10 @@
 
 .ListLi{
 	font-weight: 700;
-	height: 60px;
-	line-height: 60px;
+	height: 56px;
+    line-height: 56px;
 	background: url('../img/left_bg.png');
-	
+	background-size:100% 100%; 
 }
 
 .item{
@@ -161,10 +161,10 @@
 		}	
 	}
 	.ListLi+.ListLi{
-		margin-top: 35px;
+		margin-top: 34px;
 	}
 }
-.headerCon{
+.HeaderCon{
 	line-height: 72px;
 	.item{
 		color:#00fff0;
@@ -182,9 +182,9 @@
 
 /* 绘制光点随着曲线移动  模块 start*/
 @lightBoxW:180px;
-@lightBoxH:720px;
+@lightBoxH:684px;
 .QuadraticCurveBox{
-	margin-top: 117px;
+	margin-top: 96px;
 	width:@lightBoxW;
 	height:@lightBoxH;
 	position: relative;
@@ -252,7 +252,7 @@
 }
 /*绘制光点随着曲线移动  模块 end*/
 
-.headerCon{
+.HeaderCon{
    width: 437px;
    height:91px;
    margin:20px auto;
@@ -297,7 +297,7 @@
 	height: 390px;
 }
 .RotateBox.outer{
-   padding: 25px 30px;
+  	padding: 25px 30px;
 	background:url(../img/roll_wai.png);
 	// .elipse{
 	// 	top: -40%;
@@ -305,9 +305,14 @@
 	// 	background-size:100% 100%; 
 	// 	border:1px solid red;
 	// }
+	.RotateItemMain{
+		width:100%;
+		height:100%;
+		//border:1px solid red;
+	}
 }
 .RotateBox.inner{
-	margin: 92px auto;
+	margin: 92px 167px;
     width: 470px;
     height: 200px;
     position: relative;
@@ -318,8 +323,12 @@
 	// 	background: url(../img/roll_nei.png);
 	// 	background-size:100% 100%; 
 	// 	border:1px solid red;
-		
 	// }
+	.RotateItemMain{
+		width:100%;
+		height:100%;
+		//border:1px solid red;
+	}
 }
 .RotateParent {
 	width: 100%;
@@ -400,8 +409,8 @@
 /* 旋转模块  end*/
 
 /* 中间底部 */
-.CenterBotom{
-	margin-top:-20px;
+.CenterBottom{
+	margin-top:-44px;
 }
 .LevelDataLi{
 	width:137px;
@@ -420,7 +429,7 @@
 	width: 137px;
 	height:122px;
 	text-align: center;
-	margin-top: -28px;
+	margin-top: -38px;
     background: url(../img/bom_bg.png) no-repeat;
     padding-top: 24px;
 	.ItemNum{
