@@ -66,12 +66,13 @@ function draw(elementId, n) {
 * @param {*} direction     需要绘制曲线的方向,只能为 "converage"|'spread'
 */
 function LightLoop(element, n,type) {
-
+    this.type=type;
     this.boxHeight = $(element).height();         //移动点的的高度  
     this.boxWidth = $(element).width();          //移动点的父元素的的宽度
     this.perHeight = parseInt(this.boxHeight / n);
     this.childWidth = $(element).children().width();                   //移动点的子元素的宽度    
     this.childHeight = $(element).children().height();                 //移动点的子元素的高度
+    
     //控制点p1统一为
     this.controlX = 20;                                          //离canvas做左侧的水平距离 统一为20；
     //终点p2统一为右边终点
@@ -79,8 +80,7 @@ function LightLoop(element, n,type) {
     this.endY = this.boxHeight / 2;//垂直中心
     var radio = 0;//贝塞尔曲线的比值
 
-    this.turnOn = setInterval(function () {
-        //顺时针旋转 ++，逆时针旋转  --
+    var turnOn = setInterval(function () {
         _this.turn();
     }, 10)
     var _this = this;
@@ -93,9 +93,9 @@ function LightLoop(element, n,type) {
         for (var i = 0; i < n; i++) {
             var obj = {};
              //控制点p1
-            obj.controlY= this.boxHeight / 2+this.perHeight/8*(i-n/2);                           //垂直中心
+            obj.controlY= this.boxHeight / 2+this.perHeight/8*(i-n/2);                          
             //如果是光点往集中方向移动的类型
-            if(type==="converage"){
+            if(this.type==="converage"){
             //起点p0                
                 obj.startX = 0;                                              //离canvas做左侧的水平距离            
                 obj.startY = this.perHeight / 2 + this.perHeight * i;             //离canvas顶部的垂直距离  
@@ -105,17 +105,18 @@ function LightLoop(element, n,type) {
                 obj.k = [(1 - radio) * (obj.controlY - obj.startY) + radio * (obj.endY - obj.controlY)] / [(1 - radio) * (this.controlX - obj.startX) + radio * (obj.endX - this.controlX)];
                 //根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
                 obj.angle = Math.atan(obj.k) / 0.017453293;//根据斜率得到旋转角度
-            }else if(type==='spread'){//如果是光点往分散方向移动的类型
+            //如果是光点往分散方向移动的类型
+            }else if(this.type==='spread'){
                 obj.startX = this.endX;                                                       
                 obj.startY = this.endY;             
                 obj.endX=0;
                 obj.endY=this.perHeight / 2 + this.perHeight * i;  
-                
+        
                 //计算斜率，得到点的切线方向，得到角度
                 obj.k = [(1 - radio) * (obj.controlY - obj.startY) + radio * (obj.endY - obj.controlY)] / [(1 - radio) * (this.controlX - obj.startX) + radio * (obj.endX - this.controlX)];
                
                 //根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
-                obj.angle = Math.atan(obj.k) / 0.017453293; //根据斜率得到旋转角度，+180另外图标自身要换反方向
+                obj.angle = Math.atan(obj.k) / 0.017453293+180; //根据斜率得到旋转角度，+180另外图标自身要换反方向
             }
              //根据比值radio变化计算点的坐标值；p=(1-radio)*(1-radio)p0+2*radio*(1-radio)*p1+radio*radio*p2;
              obj.nowX = (1 - radio) * (1 - radio) * obj.startX + 2 * radio * (1 - radio) * this.controlX + radio * radio * obj.endX;
@@ -126,6 +127,13 @@ function LightLoop(element, n,type) {
                 'transform': 'rotate(' + obj.angle + 'deg)'
             });
         }
+    }
+    this.setType=function(newType){//重置广点移动方式
+        this.type=newType;
+        clearInterval(turnOn);
+        turnOn = setInterval(function () {
+            _this.turn();
+        }, 10)
     }
 }
 

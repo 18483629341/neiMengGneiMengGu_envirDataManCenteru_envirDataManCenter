@@ -108,6 +108,9 @@
   font-size: 18px;
   color: #ffffff;
 }
+.leftBox {
+  margin-right: 5px;
+}
 .leftBox .ListHeader {
   padding-left: 14px;
   background: url('../img/left_title_bg.png');
@@ -120,6 +123,9 @@
 }
 .leftBox .ListLi + .ListLi {
   margin-top: 14px;
+}
+.rightBox {
+  margin-left: 5px;
 }
 .rightBox .ListHeader {
   padding-right: 14px;
@@ -231,6 +237,9 @@
   margin: 0 auto;
   background: url(../img/down.png) no-repeat;
 }
+.rotate {
+  transform: rotate(180deg);
+}
 /* 旋转模块  start*/
 @-webkit-keyframes spin {
   from {
@@ -302,10 +311,17 @@
   display: block;
   border-radius: 50%;
   z-index: 2;
+}
+.RotateItem p {
   color: #fff;
   font-size: 18px;
   line-height: 75px;
   text-align: center;
+}
+.RotateItem .RollName {
+  color: #92beff;
+  font-size: 14px;
+  line-height: 20px;
 }
 .RotateItemInner {
   width: 60px;
@@ -315,11 +331,21 @@
   position: absolute;
   display: block;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 1;
+}
+.RotateItemInner p {
   color: #fff;
   font-size: 14px;
   line-height: 60px;
   text-align: center;
+}
+.RotateItemInner .unit {
+  color: #00fff0;
+}
+.RotateItemInner .RollName {
+  color: #00fff0;
+  font-size: 13px;
+  line-height: 20px;
 }
 .RotateBox.center {
   margin: 99px auto;
@@ -393,22 +419,23 @@
   margin-top: 30px;
 }
 .footer .point {
-  min-width: 100px;
+  min-width: 110px;
   padding: 0 10px;
   font-size: 20px;
   font-weight: 700;
   color: #fff;
   line-height: 50px;
+  cursor: pointer;
 }
 .footer .progress {
   width: 100%;
   height: 4px;
   margin-top: 23px;
   background: #1c3761;
+  position: relative;
 }
 .footer .progress .innerRadio {
-  position: relative;
-  width: 60%;
+  width: 0%;
   height: 100%;
   background: #00fff5;
 }
@@ -416,9 +443,10 @@
   position: absolute;
   width: 34px;
   height: 33px;
+  left: 0%;
   background: url(../img/light.png) no-repeat;
-  right: -17px;
-  top: -16.5px;
+  margin-left: -10.5px;
+  margin-top: -19px;
 }
 .footer .point:first-child {
   text-align: left;

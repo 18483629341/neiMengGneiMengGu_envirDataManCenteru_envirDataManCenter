@@ -19,13 +19,13 @@ function Roll(element,n) {
 		turnOn=setInterval(function(){
 			//顺时针旋转 ++，逆时针旋转  --
 			_this.turn();
-		},10)
+		},50)
 
 	}).trigger('mouseleave');
 	//循环一次执行的方法
 	this.turn=function(){
 		//requestAnimFrame(_this.turn);
-		this.angle=this.angle+0.01;
+		this.angle=this.angle+0.03;
 		var radio=null;
 		for(var i=0;i<n;i++){
             
@@ -38,9 +38,7 @@ function Roll(element,n) {
 				radio=(simpAngle-270)*(1-this.minRadio)/180+this.minRadio;
 			}else{
 				radio=(simpAngle-(-90))*(1-this.minRadio)/180+this.minRadio;
-			}
-			console.log(radio)
-			
+			}		
 			//0.017453293为角度转为弧度的比率值，1度=0.017453293弧度；Math.cos(x),x为弧度
 			var nowRad=parseFloat(simpAngle*0.017453293).toFixed(8);
 			$(element + ' .RotateItem:eq(' + i + ')').animate({
