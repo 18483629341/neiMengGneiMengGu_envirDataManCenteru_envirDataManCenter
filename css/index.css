@@ -230,6 +230,7 @@
   height: 91px;
   margin: 20px auto;
   background: url(../img/top_bg.png) no-repeat;
+  transform: rotate(0deg);
 }
 .DownIconBox {
   width: 42px;
@@ -237,7 +238,8 @@
   margin: 0 auto;
   background: url(../img/down.png) no-repeat;
 }
-.rotate {
+.HeaderCon.rotate,
+.DownIconBox.rotate {
   transform: rotate(180deg);
 }
 /* 旋转模块  start*/

@@ -66,29 +66,30 @@ function draw(elementId, n) {
 * @param {*} direction     需要绘制曲线的方向,只能为 "converage"|'spread'
 */
 function LightLoop(element, n,type) {
+    this.element=element
     this.type=type;
-    this.boxHeight = $(element).height();         //移动点的的高度  
-    this.boxWidth = $(element).width();          //移动点的父元素的的宽度
+    this.boxHeight = $(this.element).height();         //移动点的的高度  
+    this.boxWidth = $(this.element).width();          //移动点的父元素的的宽度
     this.perHeight = parseInt(this.boxHeight / n);
-    this.childWidth = $(element).children().width();                   //移动点的子元素的宽度    
-    this.childHeight = $(element).children().height();                 //移动点的子元素的高度
+    this.childWidth = $(this.element).children().width();                   //移动点的子元素的宽度    
+    this.childHeight = $(this.element).children().height();                 //移动点的子元素的高度
     
     //控制点p1统一为
     this.controlX = 20;                                          //离canvas做左侧的水平距离 统一为20；
     //终点p2统一为右边终点
     this.endX = this.boxWidth;
     this.endY = this.boxHeight / 2;//垂直中心
-    var radio = 0;//贝塞尔曲线的比值
-
-    var turnOn = setInterval(function () {
+    this.radio = 0;//贝塞尔曲线的比值
+    
+    var _this = this;
+    var LightTurnOn = setInterval(function () {
         _this.turn();
     }, 10)
-    var _this = this;
     this.turn = function () {
-        if (radio >= 1) {
-            radio = 0
+        if (this.radio >= 1) {
+            this.radio = 0
         } else {
-            radio = radio + 0.005;
+            this.radio = this.radio + 0.005;
         }
         for (var i = 0; i < n; i++) {
             var obj = {};
@@ -102,39 +103,43 @@ function LightLoop(element, n,type) {
                 obj.endX=this.endX;
                 obj.endY=this.endY;    
                 //计算斜率，得到点的切线方向，得到角度
-                obj.k = [(1 - radio) * (obj.controlY - obj.startY) + radio * (obj.endY - obj.controlY)] / [(1 - radio) * (this.controlX - obj.startX) + radio * (obj.endX - this.controlX)];
+                obj.k = [(1 - this.radio) * (obj.controlY - obj.startY) + this.radio * (obj.endY - obj.controlY)] / [(1 - this.radio) * (this.controlX - obj.startX) + this.radio * (obj.endX - this.controlX)];
                 //根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
                 obj.angle = Math.atan(obj.k) / 0.017453293;//根据斜率得到旋转角度
             //如果是光点往分散方向移动的类型
-            }else if(this.type==='spread'){
+            }else{
                 obj.startX = this.endX;                                                       
                 obj.startY = this.endY;             
                 obj.endX=0;
                 obj.endY=this.perHeight / 2 + this.perHeight * i;  
         
                 //计算斜率，得到点的切线方向，得到角度
-                obj.k = [(1 - radio) * (obj.controlY - obj.startY) + radio * (obj.endY - obj.controlY)] / [(1 - radio) * (this.controlX - obj.startX) + radio * (obj.endX - this.controlX)];
+                obj.k = [(1 - this.radio) * (obj.controlY - obj.startY) + this.radio * (obj.endY - obj.controlY)] / [(1 - this.radio) * (this.controlX - obj.startX) + this.radio * (obj.endX - this.controlX)];
                
                 //根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
                 obj.angle = Math.atan(obj.k) / 0.017453293+180; //根据斜率得到旋转角度，+180另外图标自身要换反方向
             }
-             //根据比值radio变化计算点的坐标值；p=(1-radio)*(1-radio)p0+2*radio*(1-radio)*p1+radio*radio*p2;
-             obj.nowX = (1 - radio) * (1 - radio) * obj.startX + 2 * radio * (1 - radio) * this.controlX + radio * radio * obj.endX;
-             obj.nowY = (1 - radio) * (1 - radio) * obj.startY + 2 * radio * (1 - radio) *obj.controlY + radio * radio * obj.endY;
-            $(element + ' .LineIcon:eq(' + i + ')').css({
+             //根据比值this.radio变化计算点的坐标值；p=(1-this.radio)*(1-this.radio)p0+2*this.radio*(1-this.radio)*p1+this.radio*this.radio*p2;
+             obj.nowX = (1 - this.radio) * (1 - this.radio) * obj.startX + 2 * this.radio * (1 - this.radio) * this.controlX + this.radio * this.radio * obj.endX;
+             obj.nowY = (1 - this.radio) * (1 - this.radio) * obj.startY + 2 * this.radio * (1 - this.radio) *obj.controlY + this.radio * this.radio * obj.endY;
+            $(this.element + ' .LineIcon:eq(' + i + ')').css({
                 'left': obj.nowX - this.childWidth / 2,
                 'top': obj.nowY - this.childHeight / 2,
                 'transform': 'rotate(' + obj.angle + 'deg)'
             });
         }
     }
-    this.setType=function(newType){//重置广点移动方式
+    this.setType=function(newType){                                  //重置光点移动方式
         this.type=newType;
-        clearInterval(turnOn);
-        turnOn = setInterval(function () {
+        clearInterval(LightTurnOn);
+        console.log(LightTurnOn);
+        this.radio = 0;//重置曲线的绘制比值
+        LightTurnOn = setInterval(function () {
             _this.turn();
         }, 10)
+        console.log(_this.turn());
     }
+    
 }
 
 
