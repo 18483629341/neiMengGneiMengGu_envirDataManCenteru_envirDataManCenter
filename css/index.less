@@ -266,9 +266,11 @@
    height:86px;
    margin:0 auto;
    background: url(../img/down.png) no-repeat;
-   animation: downMove 5s infinite;
+   
+   animation: downMove 5s infinite;  
 }
 .DownIconBox.UpSideDown{
+	margin-top:20px;	
 	transform:rotate(180deg);
 	animation: upMove 5s infinite;
 }
@@ -358,6 +360,10 @@
 		height:100%;
 		//border:1px solid red;
 	}
+	.RollName{
+		width:175px;
+		margin-left:-50px;
+	}
 	
 }
 
@@ -419,6 +425,7 @@
 		color: #92beff;
 		font-size: 14px;
 		line-height: 20px;
+		
 	}
 }
 .RotateItemInner{
@@ -487,7 +494,9 @@
 }
 .LevelDataLi{
 	width:137px;
-	display: inline-block;
+    height: 170px;
+    display: inline-block;
+    position: relative;
 }
 .LevelDataLi+.LevelDataLi{
 	margin-left: 160px;
@@ -495,12 +504,13 @@
 .UpIconBox{
 	width: 42px;
 	height:86px;
-	margin:0 auto;
+	left: 50px;
 	background: url(../img/up.png) no-repeat;
-	position: relative;
+	position: absolute;
 	animation: upMove 5s infinite;
 }
 .UpIconBox.UpSideDown{
+	margin-top:-20px;
 	transform:rotate(180deg);
 	animation: downMove 5s infinite;
 }
@@ -508,7 +518,7 @@
 	width: 137px;
 	height:122px;
 	text-align: center;
-	margin-top: -38px;
+	margin-top:62px;
     background: url(../img/bom_bg.png) no-repeat;
     padding-top: 24px;
 	.ItemNum{
