@@ -70,6 +70,7 @@ $(function () {
 
     //整体向中心集中
     function collectTranslate() {
+        //console.log(1);
         if (status != 'converage') {
             $(".DownIconBox").removeClass('UpSideDown');
             $(".UpIconBox").removeClass('UpSideDown');
