@@ -15,8 +15,7 @@
 	<script>
 		$(function () {
 			autoFit();
-			draw('canvas', 10);
-			draw('canvas2', 8)
+			
 		})
 	</script>
 	<header class="header">
@@ -218,6 +217,12 @@
 			<!-- 绘制光点随着曲线移动  模块 start-->
 			<div class="QuadraticCurveBox QuadraticCurveBoxRight">
 				<canvas class="QuadraticCurve" id="canvas2" width=180 height=684></canvas>
+				<script>
+					$(function(){
+						draw('canvas', 10);
+						draw('canvas2', 8)
+					})
+				</script>
 				<div class="LightBox" id="LightBoxRight">
 					<span class="LineIcon LineIcon0" id="LineIcon0"></span>
 					<span class="LineIcon LineIcon1" id="LineIcon1"></span>

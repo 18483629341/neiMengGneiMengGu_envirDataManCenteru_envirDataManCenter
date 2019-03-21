@@ -134,12 +134,10 @@ function LightLoop(element, n,type) {
     this.setType=function(newType){                                 
         this.type=newType;
         clearInterval(LightTurnOn);
-        console.log(LightTurnOn);
         this.radio = 0;//重置曲线的绘制比值
         LightTurnOn = setInterval(function () {
             _this.turn();
         }, 40)
-        console.log(_this.turn());
     }
     
 }
@@ -158,8 +156,6 @@ function CenterValueLoop(){
         }else{
             i++;
         }
-     },500)
+     },5000)
      
 };
-
-

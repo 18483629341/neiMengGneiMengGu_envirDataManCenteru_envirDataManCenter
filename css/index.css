@@ -238,11 +238,15 @@
   margin: 0 auto;
   background: url(../img/down.png) no-repeat;
   animation: downMove 5s infinite;
+  -moz-animation: downMove 5s infinite;
+  -webkit-animation: downMove 5s infinite;
 }
 .DownIconBox.UpSideDown {
   margin-top: 20px;
   transform: rotate(180deg);
   animation: upMove 5s infinite;
+  -moz-animation: upMove 5s infinite;
+  -webkit-animation: upMove 5s infinite;
 }
 @keyframes downMove {
   from {
@@ -270,7 +274,7 @@
     opacity: .2;
   }
   to {
-    top: -20px;
+    top: 20px;
     opacity: 1;
   }
 }
@@ -473,11 +477,15 @@
   background: url(../img/up.png) no-repeat;
   position: absolute;
   animation: upMove 5s infinite;
+  -moz-animation: upMove 5s infinite;
+  -webkit-animation: upMove 5s infinite;
 }
 .UpIconBox.UpSideDown {
   margin-top: -20px;
   transform: rotate(180deg);
   animation: downMove 5s infinite;
+  -moz-animation: downMove 5s infinite;
+  -webkit-animation: downMove 5s infinite;
 }
 .ListItem {
   width: 137px;

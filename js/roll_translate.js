@@ -11,7 +11,7 @@ function Roll(element) {
 	//旋转路径是根据父元素的宽度的一半作为椭圆的X轴的半径
 	this.rx = $(element).width() / 2;
 	this.ry =  $(element).height() / 2; //0.5为y轴半径与x轴半径的比率；
-	this.minRadio=0.5;
+	this.minRadio=0.6;
 	var turnOn=null;
 	var _this=this;
 	$(element).hover(function(){
@@ -20,7 +20,7 @@ function Roll(element) {
 		turnOn=setInterval(function(){
 			//顺时针旋转 ++，逆时针旋转  --
 			_this.turn();
-		},1)
+		},10)
 	}).trigger('mouseleave');
 	//循环一次执行的方法
 	this.turn=function(){
