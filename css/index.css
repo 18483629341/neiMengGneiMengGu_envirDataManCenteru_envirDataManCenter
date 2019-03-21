@@ -221,8 +221,9 @@
   left: 0;
   top: 684px;
 }
-.QuadraticCurveBoxRight {
+.RightLineList {
   transform: rotate(180deg);
+  margin-top: 96px;
 }
 /*绘制光点随着曲线移动  模块 end*/
 .HeaderCon {

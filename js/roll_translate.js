@@ -20,7 +20,7 @@ function Roll(element) {
 		turnOn=setInterval(function(){
 			//顺时针旋转 ++，逆时针旋转  --
 			_this.turn();
-		},10)
+		},1)
 	}).trigger('mouseleave');
 	//循环一次执行的方法
 	this.turn=function(){

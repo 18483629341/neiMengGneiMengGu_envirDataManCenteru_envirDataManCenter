@@ -36,24 +36,35 @@ $(function () {
     var timer = setTimeout(function () {
         //数据汇聚和数据服务的方法
         if (parseInt(i % 2) === parseInt(0)) {
-            $('.innerRadio').animate({ width: '100%' }, loopTime);
-            $('.light').animate({ left: '100%' }, loopTime, function () {
+            //此处展示数据汇聚的内容
+            
+            //光点向右移动
+            $('.innerRadio').animate({ width: '100%' }, animateTime);
+            $('.light').animate({ left: '100%' }, animateTime, function () {
+                //状态转变到数据服务
                 spreadTranslate()//整体向外扩散
+                status = 'service';
             });
         } else if (parseInt(i % 2) === parseInt(1)) {
-            $('.innerRadio').animate({ width: '0' }, loopTime);
-            $('.light').animate({ left: '0' }, loopTime, function () {
+            //此处展示数据服务的内容
+            
+            //光点向左移动
+            $('.innerRadio').animate({ width: '0' }, animateTime);
+            $('.light').animate({ left: '0' }, animateTime, function () {
+                //状态转变到数据汇聚
                 collectTranslate();  //整体向中心集中
-            });
+                status = 'converage';
+            });  
         }
         i++;
         timer = setTimeout(arguments.callee, loopTime);
     }, loopTime)
-    //当前的状态:数据汇聚对应的'converage'；数据服务对应的'spread'；
+    //当前的状态:数据汇聚对应的'converage'；数据服务对应的'service'；
     var status = 'converage';
     //统一循环控制集中和扩散的时间
-    var loopTime = 10000;
-    
+    var loopTime = 30000;
+    var animateTime=29500;
+
     //循环播放数据
     CenterValueLoop();//虚拟展示              
 
@@ -69,7 +80,7 @@ $(function () {
 
     //整体向外扩散
     function spreadTranslate() {
-        if (status != 'spread') {
+        if (status != 'service') {
             $(".DownIconBox").addClass('UpSideDown');
             $(".UpIconBox").addClass('UpSideDown');
             lightLoopLeft.setType("spread");//converage 往扩散方向
