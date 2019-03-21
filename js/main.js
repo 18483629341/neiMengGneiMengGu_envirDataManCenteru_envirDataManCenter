@@ -156,6 +156,6 @@ function CenterValueLoop(){
         }else{
             i++;
         }
-     },5000)
+     },500)
      
 };
