@@ -34,6 +34,17 @@ $(function () {
     //数据汇聚和数据服务的循环切换 使用setTimeout()模拟setInterval()，才能准确在间隔时间内执行方法
     var i = 0;
     var timer = setTimeout(function () {
+        leftRightAlter();
+       
+        timer = setTimeout(arguments.callee, loopTime);
+    }, loopTime)
+    //当前的状态:数据汇聚对应的'converage'；数据服务对应的'service'；
+    var status = 'converage';
+    //统一循环控制集中和扩散的时间
+    var loopTime = 30000;
+    var animateTime=29500;
+    
+    function leftRightAlter(){
         //数据汇聚和数据服务的方法
         if (parseInt(i % 2) === parseInt(0)) {
             //此处展示数据汇聚的内容
@@ -57,13 +68,7 @@ $(function () {
             });  
         }
         i++;
-        timer = setTimeout(arguments.callee, loopTime);
-    }, loopTime)
-    //当前的状态:数据汇聚对应的'converage'；数据服务对应的'service'；
-    var status = 'converage';
-    //统一循环控制集中和扩散的时间
-    var loopTime = 30000;
-    var animateTime=29500;
+    }
 
     //循环播放数据
     CenterValueLoop();//虚拟展示              
@@ -88,5 +93,40 @@ $(function () {
             lightLoopRight.setType('spread');
         }
     }
+     
+    $("#LeftPoint").hover(function() {
+        // $(this).stop(true)
+        $('.innerRadio').stop(true).animate({ width: '0%' }, 500);     //如果在此时触发了光标的移出事件
+        //                                           //直接跳过后面的动画队列
+        $('.light').stop(true).animate({ left: '0' }, 500);
+        clearTimeout(timer);
+    },function(){
+        timer = setTimeout(function () {
+            leftRightAlter();
+            timer = setTimeout(arguments.callee, loopTime);
+        }, loopTime)
+    }).trigger("mouseleave");
+      
+    $("#RightPoint").hover(function() {
+        $('.innerRadio').stop(true).animate({ width: '100%' }, 500);//如果在此时触发了光标的移出事件
+        $('.light').stop(true).animate({ left: '100%' }, 500);//直接跳过后面的动画队列
+    });
+    // $("body").on('click', '#LeftPoint', function () {
+    //     clearTimeout(timer);
+    //     //整体向中心集中
+    //     status = 'converage';
+    //     i=0;
+    //     timer = setTimeout(function () {
+    //         leftRightAlter();
+           
+    //         timer = setTimeout(arguments.callee, loopTime);
+    //     }, loopTime)
+    // })
+
+    $('body').on('click', '#RightPoint', function () {
+        // //整体向外扩散
+        status = 'service';
+        i=1;
+    })
 })
 
