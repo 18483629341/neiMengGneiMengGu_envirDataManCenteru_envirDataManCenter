@@ -1,8 +1,8 @@
 $(function () {
     /* 外环的旋转*/
-    var rollItem1 = new Roll('#OutRotateItemMain');/*参数一：需要旋转的元素选择器 */
+    var rollPanel1 = new RollPanel('#OutRotateItemMain');/*参数一：需要旋转的元素选择器 */
     /* 内环的旋转*/
-    var rollItem2 = new Roll('#InRotateItemMain');/*参数一：需要旋转的元素选择器 */
+    var rollPanel2 = new RollPanel('#InRotateItemMain');/*参数一：需要旋转的元素选择器 */
 
     var lightLoopLeft = new LightLoop('#LightBox', 10, "converage");//converage 往集中方向
     var lightLoopRight = new LightLoop('#LightBoxRight', 8, 'converage');

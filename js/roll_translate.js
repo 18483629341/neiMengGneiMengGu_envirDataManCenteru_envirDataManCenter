@@ -3,7 +3,7 @@
  * @param {element} 需要旋转的元素的选择器
  * @param {angle} 初始位置所在的角度
  */
-function Roll(element) {
+function RollPanel(element) {
 	this.element = $(element);
 	this.angle = 0;
 	this.sideLength=$(element).children().width();
