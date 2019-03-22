@@ -3,9 +3,16 @@ $(function () {
     var rollPanel1 = new RollPanel('#OutRotateItemMain');/*参数一：需要旋转的元素选择器 */
     /* 内环的旋转*/
     var rollPanel2 = new RollPanel('#InRotateItemMain');/*参数一：需要旋转的元素选择器 */
-
+    
+    /* 左边曲线  */
+    draw('canvas', 10);//draw(elementId,需要展示的曲线条数)
+    /* 左边曲线上所有的光点的方法对象  */
     var lightLoopLeft = new LightLoop('#LightBox', 10, "converage");//converage 往集中方向
-    var lightLoopRight = new LightLoop('#LightBoxRight', 8, 'converage');
+
+     /* 右边曲线  */
+    draw('canvas2', 9);
+    /* 右边曲线上所有的光点的方法对象  */
+    var lightLoopRight = new LightLoop('#LightBoxRight', 9, 'converage');
 
     //数据汇聚和数据服务的循环切换  使用setInterval()使用与内部的animate()时间有误差，做出的效果不稳定；不能在准确的时间，间隔
     // LeftRightLoop();

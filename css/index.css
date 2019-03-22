@@ -94,7 +94,7 @@
   background-size: 100% 100%;
 }
 .item {
-  width: 49%;
+  width: 53%;
   display: inline-block;
   font-size: 16px;
   color: #92beff;
@@ -102,7 +102,7 @@
   font-weight: 700;
 }
 .num {
-  width: 49%;
+  width: 45%;
   display: inline-block;
   text-align: right;
   font-size: 18px;
@@ -125,7 +125,7 @@
   margin-top: 14px;
 }
 .rightBox {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .rightBox .ListHeader {
   padding-right: 14px;
@@ -141,7 +141,7 @@
   text-align: left;
 }
 .rightBox .ListLi + .ListLi {
-  margin-top: 34px;
+  margin-top: 23px;
 }
 .HeaderCon {
   line-height: 72px;
@@ -399,7 +399,7 @@
 .RotateItem .RollName {
   color: #92beff;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 27px;
 }
 .RotateItemInner {
   width: 60px;
@@ -423,7 +423,9 @@
 .RotateItemInner .RollName {
   color: #00fff0;
   font-size: 13px;
-  line-height: 20px;
+  line-height: 24px;
+  width: 120px;
+  margin-left: -30px;
 }
 .RotateBox.center {
   margin: 99px auto;
