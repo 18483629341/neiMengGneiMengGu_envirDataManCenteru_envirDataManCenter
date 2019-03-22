@@ -1,0 +1,111 @@
+/* CSS Document */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+ul,
+li,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+dl,
+dt,
+dd,
+input {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: #333;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'Microsoft yahei';
+}
+img {
+  vertical-align: middle;
+  border: 0;
+}
+.FlexBlock {
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+.flex1 {
+  flex: 1;
+}
+.InlineBlock {
+  display: inline-block;
+}
+.clear {
+  clear: both;
+}
+.FloatLeft {
+  float: left;
+}
+.FloatRight {
+  float: right;
+}
+.AlignRight {
+  text-align: right!important;
+}
+.icon {
+  display: inline-block;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Microsoft yahei';
+  background-color: #000430;
+}
+.body1 {
+  width: 1920px;
+  overflow-y: scroll;
+  background: url(../img/all_bg.png);
+  background-size: 100% 100%;
+  overflow-x: hidden;
+}
+.body1::-webkit-scrollbar {
+  display: none;
+}
+/* 框架布局*/
+.section {
+  padding: 0 50px;
+}
+.section .ListBox {
+  width: 268px;
+}
+.section .leftListBox {
+  width: 100px;
+  min-height: 720px;
+}
+.section .LineList {
+  width: 180px;
+}
+.section .CenterBox {
+  flex: 1;
+}
+.section .CenterContent {
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+}
+.section .CenterHeader {
+  height: 200px;
+}
+.section .CenterMain {
+  height: 440px;
+}
+.footer {
+  width: 100%;
+  padding: 0 60px;
+  height: 50px;
+}

@@ -94,23 +94,23 @@ $(function () {
         }
     }
      
-    // $("#LeftPoint").hover(function() {
-    //     // $(this).stop(true)
-    //     $('.innerRadio').stop(true).animate({ width: '0%' }, 500);     //如果在此时触发了光标的移出事件
-    //     //                                           //直接跳过后面的动画队列
-    //     $('.light').stop(true).animate({ left: '0' }, 500);
-    //     clearTimeout(timer);
-    // },function(){
-    //     timer = setTimeout(function () {
-    //         leftRightAlter();
-    //         timer = setTimeout(arguments.callee, loopTime);
-    //     }, loopTime)
-    // }).trigger("mouseleave");
+    $("#LeftPoint").hover(function() {
+        // $(this).stop(true)
+        $('.innerRadio').stop(true).animate({ width: '0%' }, 500);     //如果在此时触发了光标的移出事件
+        //                                           //直接跳过后面的动画队列
+        $('.light').stop(true).animate({ left: '0' }, 500);
+        clearTimeout(timer);
+    },function(){
+        timer = setTimeout(function () {
+            leftRightAlter();
+            timer = setTimeout(arguments.callee, loopTime);
+        }, loopTime)
+    }).trigger("mouseleave");
       
-    // $("#RightPoint").hover(function() {
-    //     $('.innerRadio').stop(true).animate({ width: '100%' }, 500);//如果在此时触发了光标的移出事件
-    //     $('.light').stop(true).animate({ left: '100%' }, 500);//直接跳过后面的动画队列
-    // });
+    $("#RightPoint").hover(function() {
+        $('.innerRadio').stop(true).animate({ width: '100%' }, 500);//如果在此时触发了光标的移出事件
+        $('.light').stop(true).animate({ left: '100%' }, 500);//直接跳过后面的动画队列
+    });
     // $("body").on('click', '#LeftPoint', function () {
     //     clearTimeout(timer);
     //     //整体向中心集中
@@ -123,10 +123,10 @@ $(function () {
     //     }, loopTime)
     // })
 
-    // $('body').on('click', '#RightPoint', function () {
-    //     // //整体向外扩散
-    //     status = 'service';
-    //     i=1;
-    // })
+    $('body').on('click', '#RightPoint', function () {
+        // //整体向外扩散
+        status = 'service';
+        i=1;
+    })
 })
 

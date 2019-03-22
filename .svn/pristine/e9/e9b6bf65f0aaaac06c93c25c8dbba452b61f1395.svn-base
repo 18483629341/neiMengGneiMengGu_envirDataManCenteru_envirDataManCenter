@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" charset="utf-8">
+	<title>内蒙古自治区生态环境大数据管理平台</title>
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+</head>
+
+<body class="body1">
+	<script>
+		$(function () {
+			autoFit();
+			
+		})
+	</script>
+	<header class="header">
+		<p class="logo">
+			<img src="./img/logo.png" />内蒙古自治区生态环境大数据管理平台
+		</p>
+		<!-- 头部导航 -->
+		<div class="nav">
+			<ul>
+				<li class="NavLi active">
+					<p class="NavTheme">首页</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">环境检测图</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">环境质量</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">污染源档案</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">资源目录</p>
+				</li>
+				<li class="NavLi">
+					<p class="NavTheme">大屏展示</p>
+				</li>
+
+			</ul>
+			<!-- <div class="people-info">
+				<i class="line"></i>
+				<p>欢迎您Admin</p>
+				<a href="#" title="注销"></a>
+			</div> -->
+		</div>
+	</header>
+
+	<section class="section FlexBlock">
+		<div class="UnitBox">
+			<p>
+				<span class='name'>默认单位：</span>
+			    <span class='unit'>条</span>
+			</p>
+		</div>
+		<!-- 左列表 -->
+		<div class="ListBox leftBox">
+			<p class="ListHeader">业务数据</p>
+			<ul class="ListBox">
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+				<li class="ListLi">
+					<span class="item">排污许可</span>
+					<span class="num">123452</span>
+				</li>
+			</ul>
+		</div>
+		<!-- 左边线调组合 -->
+		<div class="LineList">
+			<!-- 绘制光点随着曲线移动  模块 start-->
+			<div class="QuadraticCurveBox ">
+				<canvas class="QuadraticCurve" id="canvas" width=180 height=684></canvas>
+				<div class="LightBox" id="LightBox">
+					<span class="LineIcon LineIcon0" id="LineIcon0"></span>
+					<span class="LineIcon LineIcon1" id="LineIcon1"></span>
+					<span class="LineIcon LineIcon2" id="LineIcon2"></span>
+					<span class="LineIcon LineIcon3" id="LineIcon3"></span>
+					<span class="LineIcon LineIcon4" id="LineIcon4"></span>
+					<span class="LineIcon LineIcon5" id="LineIcon5"></span>
+					<span class="LineIcon LineIcon6" id="LineIcon6"></span>
+					<span class="LineIcon LineIcon7" id="LineIcon7"></span>
+					<span class="LineIcon LineIcon8" id="LineIcon8"></span>
+					<span class="LineIcon LineIcon9" id="LineIcon9"></span>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- 绘制光点随着曲线移动  模块 end-->
+		</div>
+		<!-- 中间所有内容的容器 -->
+		<div class="CenterBox">
+			<div class="CenterContent">
+				<div class="CenterHeader">
+					<div class="HeaderCon">
+						<p>
+							<span class="item">生态环境部</span>
+							<span class="num">4533271</span>
+						</p>
+					</div>
+					<div class="DownIconBox"></div>
+				</div>
+				<!-- 中间所有旋转模块的容器 -->
+				<div class="CenterMain">
+					<div class="RotateBox outer">
+						<div class="RotateParent ">
+							<div class="elipse">
+							</div>
+							<div class="RotateItemMain" id="OutRotateItemMain">
+								<div class="RotateItem" ><p>21234</p><p class="RollName">环境风险与应急</p></div>
+								<div class="RotateItem" ><p>4901</p><p class="RollName">核与环境</p></div>
+								<div class="RotateItem" ><p>5601</p><p class="RollName">环境风险与应急</p></div>
+								<div class="RotateItem" ><p>2123</p><p class="RollName">环境风险与应急</p></div>
+								<div class="RotateItem" ><p>4901</p><p class="RollName">环境风险与应急</p></div>
+								<div class="RotateItem" ><p>5601</p><p class="RollName">环境风险与应急</p></div>
+								<div class="RotateItem" ><p>4901</p><p class="RollName">环境风险与应急</p></div>
+								<div class="RotateItem" ><p>5601</p><p class="RollName">环境风险与应急</p></div>
+							</div>
+						</div>
+					</div>
+					<div class="RotateBox inner">
+						<div class="RotateParent ">
+							<div class="elipse">
+							</div>
+							<div class="RotateItemMain" id="InRotateItemMain">
+								<div class="RotateItem RotateItemInner" ><p>212<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
+								<div class="RotateItem RotateItemInner" ><p>490<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
+								<div class="RotateItem RotateItemInner" ><p>560<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
+								<div class="RotateItem RotateItemInner" ><p>234<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
+								<div class="RotateItem RotateItemInner" ><p>490<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
+								<div class="RotateItem RotateItemInner" ><p>560<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
+								<div class="RotateItem RotateItemInner" ><p>490<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
+								<div class="RotateItem RotateItemInner" ><p>560<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
+							</div>
+						</div>
+					</div>
+					<div class="RotateBox center">
+						<div class="CenterRoll">
+							 <p class="CenterItem">大数据平台</p>
+							 <p class="CenterNum"><span id="ListNum">234,566</span>条</p>
+							 <p class="CenterNum"><span id="KbNum">345,678,900</span>KB</p>
+						</div>
+					</div>
+					
+				</div>
+				<!-- 中间底部 -->
+				<div class="CenterBottom">
+					<ol class="LevelDataList">
+						<li class="LevelDataLi">
+							<div class="UpIconBox"></div>
+							<div class="ListItem">
+								<p class="ItemNum">12681</p>
+								<p class="name">盟市</p>
+							</div>
+						</li>
+						<li class="LevelDataLi">
+							<div class="UpIconBox"></div>
+							<div class="ListItem">
+								<p class="ItemNum">12681</p>
+								<p class="name">旗县</p>
+							</div>
+						</li>
+						<li class="LevelDataLi">
+							<div class="UpIconBox"></div>
+							<div class="ListItem">
+								<p class="ItemNum">12681</p>
+								<p class="name">企业</p>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="LineList RightLineList">
+			<!-- 绘制光点随着曲线移动  模块 start-->
+			<div class="QuadraticCurveBox QuadraticCurveBoxRight">
+				<canvas class="QuadraticCurve" id="canvas2" width=180 height=684></canvas>
+				<script>
+					$(function(){
+						draw('canvas', 10);
+						draw('canvas2', 8)
+					})
+				</script>
+				<div class="LightBox" id="LightBoxRight">
+					<span class="LineIcon LineIcon0" id="LineIcon0"></span>
+					<span class="LineIcon LineIcon1" id="LineIcon1"></span>
+					<span class="LineIcon LineIcon2" id="LineIcon2"></span>
+					<span class="LineIcon LineIcon3" id="LineIcon3"></span>
+					<span class="LineIcon LineIcon4" id="LineIcon4"></span>
+					<span class="LineIcon LineIcon5" id="LineIcon5"></span>
+					<span class="LineIcon LineIcon6" id="LineIcon6"></span>
+					<span class="LineIcon LineIcon7" id="LineIcon7"></span>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="ListBox rightBox">
+			<p class="ListHeader">业务数据</p>
+			<ul class="ListBox">
+				<li class="ListLi">
+					<span class="num">123452</span>
+					<span class="item">排污许可</span>
+				</li>
+				<li class="ListLi">
+					<span class="num">123452</span>
+					<span class="item">排污许可</span>
+				</li>
+				<li class="ListLi">
+					<span class="num">123452</span>
+					<span class="item">排污许可</span>
+				</li>
+				<li class="ListLi">
+					<span class="num">123452</span>
+					<span class="item">排污许可</span>
+				</li>
+
+				<li class="ListLi">
+					<span class="num">123452</span>
+					<span class="item">排污许可</span>
+				</li>
+				<li class="ListLi">
+					<span class="num">123452</span>
+					<span class="item">排污许可</span>
+				</li>
+				<li class="ListLi">
+					<span class="num">123452</span>
+					<span class="item">排污许可</span>
+				</li>
+				<li class="ListLi">
+					<span class="num">123452</span>
+					<span class="item">排污许可</span>
+				</li>
+
+			</ul>
+		</div>
+	</section>
+	<footer class="footer FlexBlock">
+		<p class="point" id="LeftPoint">数据汇聚</p>
+		<div class="progress flex1">
+			<div class="innerRadio">
+				
+			</div>
+			<div class="light"></div>
+		</div>
+		<p class="point" id="RightPoint">数据服务</p>
+	</footer>
+
+	<script type="text/javascript" src="./js/roll_translate.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+</body>
+
+</html>

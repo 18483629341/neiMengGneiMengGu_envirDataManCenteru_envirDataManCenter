@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>canvas直线</title>
+	<meta name="Keywords" content="">
+	<meta name="author" content="@my_programmer">
+	<style type="text/css">
+		
+	
+		.QuadraticCurveBox{
+			margin: 20px;
+			width:180px;
+			height:720px;
+			position: relative;
+		}
+		.QuadraticCurve{
+			width: 180px;
+			height: 720px;
+			position: absolute;
+		}
+		.LightBox{
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+			position: relative;
+		}
+		.LineIcon{
+			display: inline-block;
+			width:30px ;
+			height:18px;
+			background: red;
+			position: absolute;
+		}
+		.LineIcon0{
+			left:0;
+			top:36px;
+		}
+		.LineIcon1{
+			left:0;
+			top:108px;
+		}
+		.LineIcon2{
+			left:0;
+			top:180px;
+		}
+		.LineIcon3{
+			left:0;
+			top:252px;
+		}
+		.LineIcon4{
+			left:0;
+			top:324px;
+		}
+		.LineIcon5{
+			left:0;
+			top:396px;
+		}
+		.LineIcon6{
+			left:0;
+			top:468px;
+		}
+		.LineIcon7{
+			left:0;
+			top:540px;
+		}
+		.LineIcon8{
+			left:0;
+			top:612px;
+		}
+		.LineIcon9{
+			left:0;
+			top:684px;
+		}
+		
+	</style>
+</head>
+
+<body onload="draw('canvas',10)">
+	<h1>二次贝塞尔曲线</h1>
+	<div class="QuadraticCurveBox">
+	   <canvas  class="QuadraticCurve" id="canvas" width=180 height=720 style="border: 1px solid #ccc;"></canvas>
+	   <div class="LightBox" id="LightBox">
+		   <span class="LineIcon LineIcon0" id="LineIcon0"></span>
+		   <span class="LineIcon LineIcon1" id="LineIcon1"></span>
+		   <span class="LineIcon LineIcon2" id="LineIcon2"></span>
+		   <span class="LineIcon LineIcon3" id="LineIcon3"></span>
+		   <span class="LineIcon LineIcon4" id="LineIcon4"></span>
+		   <span class="LineIcon LineIcon5" id="LineIcon5"></span>
+		   <span class="LineIcon LineIcon6" id="LineIcon6"></span>
+		   <span class="LineIcon LineIcon7" id="LineIcon7"></span>
+		   <span class="LineIcon LineIcon8" id="LineIcon8"></span>
+		   <span class="LineIcon LineIcon9" id="LineIcon9"></span>
+	   </div>
+	   
+	</div>
+	
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script>
+		//利用canvas绘制曲线
+		/**
+		* 
+		* @param {*} elementId 绘制曲线的canvas的ID
+		* @param {*} n         需要绘制曲线的数量
+		*/
+		function draw(elementId,n) {
+			var canvas = document.getElementById(elementId);
+			//var boxHeight=canvas.style.height;
+			//设置或得到整个canvas的高度
+			var boxHeight=$('#'+elementId).height();         //canvas的高度 待完善
+			var boxWidth=$('#'+elementId).width();          //canvas的宽度 待完善
+			var perHeight=parseInt(boxHeight/n);
+			var centerY=parseInt(boxHeight/2);
+			//console.log(boxHeight);
+			var context = canvas.getContext('2d');
+			
+			//绘制2次贝塞尔曲线 
+			
+			for(var i=0;i<n;i++){
+				var startY=perHeight/2+perHeight*i;
+			
+				context.beginPath();
+				context.moveTo(0, startY); //曲线绘制的起点
+				//quadraticCurveTo(cpx,cpy,x,y)　　//cpx，cpy表示控制点的坐标,x，y表示终点坐标；
+				        //曲线绘制的控制点位整个canvas
+				context.quadraticCurveTo(20, centerY, boxWidth, centerY);
+				context.strokeStyle = "blue";//设置贝塞尔曲线的颜色
+			    context.stroke();
+			}	
+		}
+	</script>
+	
+	<script>
+		//移动点的原型
+		/**
+		* 
+		* @param {*} elementId 移动点的id
+		* @param {*} n         总共移动点的数量
+		*/
+	    function LightLoop(elementId,n){
+			
+			this.boxHeight=$('#'+elementId).height();         //移动点的父元素的的高度  
+			this.boxWidth=$('#'+elementId).width();          //移动点的父元素的的宽度
+			this.perHeight=parseInt(this.boxHeight/n);
+			this.childWidth=$('#'+elementId).children().width();                   //移动点的的宽度    
+			this.childHeight=$('#'+elementId).children().height();                  //移动点的的高度
+			//控制点p1统一为
+			this.controlX=20;                                          //离canvas做左侧的水平距离 统一为20；
+			this.controlY=this.boxHeight/2;                            //垂直中心
+			//终点p2统一为右边终点
+			this.endX=this.boxWidth;            
+			this.endY=this.boxHeight/2;//垂直中心
+			var radio=0;//贝塞尔曲线的比值
+			
+			this.turnOn=setInterval(function(){
+					//顺时针旋转 ++，逆时针旋转  --
+					_this.turn();
+			},1)
+			var _this=this;
+			this.turn=function(){
+				if(radio>=1){
+					radio=0
+				}else{
+					radio=radio+0.0005;
+				}
+				for(var i=0;i<n;i++){
+					//起点p0
+					var obj={};
+					obj.startX=0;                                              //离canvas做左侧的水平距离            
+					obj.startY=this.perHeight/2+this.perHeight*i;             //离canvas顶部的垂直距离  
+					
+					//根据比值radio变化计算点的坐标值；p=(1-radio)*(1-radio)p0+2*radio*(1-radio)*p1+radio*radio*p2;
+					var nowX=(1-radio)*(1-radio)*obj.startX+2*radio*(1-radio)*this.controlX+radio*radio*this.endX;
+					var nowY=(1-radio)*(1-radio)*obj.startY+2*radio*(1-radio)*this.controlY+radio*radio*this.endY;
+					//计算斜率，得到点的切线方向，得到角度
+					var k=[(1-radio)*(this.controlY-obj.startY)+radio*(this.endY-this.controlY)]/[(1-radio)*(this.controlX-obj.startX)+radio*(this.endX-this.controlX)];
+					
+					//根据斜率，求得需要切斜的角度 单位为弧度，/0.017453293 转化为角度
+					var angle=Math.atan(k)/0.017453293;
+				    //console.log($('#'+elementId+' LineIcon:eq('+i+')'));
+					$('#'+elementId+' .LineIcon:eq('+i+')').css({
+						'left':nowX-this.childWidth/2,
+						'top':nowY-this.childHeight/2,
+						'transform':'rotate('+angle+'deg)'
+					});
+				}
+			}									
+		}
+
+		var lightLoop=new LightLoop('LightBox',10);
+		
+
+	</script>
+</body>
+
+</html>

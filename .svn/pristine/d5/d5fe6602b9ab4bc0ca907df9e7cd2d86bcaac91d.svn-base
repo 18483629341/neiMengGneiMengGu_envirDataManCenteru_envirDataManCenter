@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>围着椭圆/圆环旋转</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <style>
+        
+        /* 3 */
+
+        .rotateBack {
+            width: 600px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 50%; background: lightpink;
+            /* transform: rotateX(60deg) rotateZ(0deg); */
+        }
+
+        .ellipse {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+           
+            border-radius: 50%;
+            transform: rotateX(60deg) rotateZ(0deg);
+        }
+
+        .rotateItem{
+            width: 80px;
+            height: 80px;
+            border: 1px solid indianred;
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+ 
+    <div class="rotateBack">
+        <div class="ellipse">
+            1
+        </div>
+        <div class="rotateItem" id="rotateItem1">
+            1
+        </div>
+        <div class="rotateItem" id="rotateItem2">
+            2
+        </div>
+    </div>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        window.requestAnimFrame = (function() {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+                function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+                    return window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+    </script>
+    <script>
+        function Circle(element, angle) {
+            this.element = $(element);
+            this.angle = angle;
+            this.sideLength=$(element).width();
+            //旋转路径是根据父元素的宽度的一半作为椭圆的X轴的半径
+            this.rx = $(element).parent('.rotateBack').width() / 2;
+            this.ry = $(element).parent('.rotateBack').height() / 2;; //0.5为y轴半径与x轴半径的比率；
+          //  this.turnOn = function(){turn();}
+            this.turnOff = function () {}
+            var turnOn=null;
+            var _this=this;
+            $(element).hover(function(){
+                clearInterval(turnOn);
+            },function(){
+                turnOn=setInterval(function(){
+                    //顺时针旋转 ++，逆时针旋转  --
+                    _this.turn();
+                }, 100)
+            }).trigger('mouseleave');
+            //循环一次执行的方法
+            this.turn=function(){
+                this.angle=this.angle+3;
+                var simpAngle=this.angle%360;
+                var radio=1;
+                if(simpAngle>=90&&simpAngle<=270){
+                    radio=(simpAngle-90)*(-1)*(1-this.minRadio)/180+1;
+                }else if(simpAngle>270){
+                    radio=(simpAngle-270)*(1-this.minRadio)/180+this.minRadio;
+                }else{
+                    console.log(simpAngle)
+                    radio=(simpAngle-(-90))*(1-this.minRadio)/180+this.minRadio;
+                }
+        
+                //0.017453293为角度转为弧度的比率值，1度=0.017453293弧度；Math.cos(x),x为弧度
+                $(element).css({
+                    'left':this.rx*Math.cos(this.angle*0.017453293)+this.rx-this.sideLength/2+'px',
+                    'top':this.ry*Math.sin(this.angle*0.017453293)+this.ry-this.sideLength/2+'px',
+                    'transform':'scale('+parseFloat(radio).toFixed(4)+')',
+			        "transformCenter":"center"
+                })
+               // console.log('我又移动一次了');
+            }
+        }
+        
+        var circleItem1 = new Circle($('#rotateItem1'), 180);
+        var circleItem2 = new Circle($('#rotateItem2'), 90);
+        // circleItem1.turnOn();
+       
+       
+    </script>
+</body>
+
+</html>

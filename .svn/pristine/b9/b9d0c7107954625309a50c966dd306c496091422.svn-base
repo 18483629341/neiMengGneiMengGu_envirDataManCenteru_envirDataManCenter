@@ -1,0 +1,547 @@
+/*导航*/
+.header {
+  padding: 10px 60px;
+  height: 80px;
+  background: #00052f;
+  background-size: 100% 100%;
+  border-bottom: 1px solid #1f2550;
+}
+.header .logo {
+  font-size: 28px;
+  color: #ffffff;
+  line-height: 60px;
+  float: left;
+}
+.header .logo img {
+  padding-right: 10px;
+  vertical-align: -12px;
+}
+.header .nav {
+  float: right;
+}
+.header .nav ul {
+  margin-top: 14px;
+  float: left;
+}
+.header .nav ul li {
+  float: left;
+  cursor: pointer;
+}
+.NavLi.active {
+  border-bottom: 1px solid #00fff6;
+}
+.NavLi.active .NavTheme {
+  color: #00fff6;
+}
+.NavLi {
+  padding-top: 7px;
+}
+.NavLi .NavTheme {
+  line-height: 24px;
+  height: 24px;
+  font-size: 14px;
+  color: #ffffff;
+}
+.NavLi img {
+  display: block;
+  margin: 2px auto;
+  width: 22px;
+}
+.NavLi + .NavLi {
+  margin-left: 45px;
+}
+/* section 部分*/
+.section {
+  padding: 0 60px;
+  overflow: hidden;
+  position: relative;
+}
+.section .IndexMainTab {
+  width: 144px;
+  float: left;
+  height: 100%;
+}
+.UnitBox {
+  width: 200px;
+  position: absolute;
+  height: 22px;
+  top: 14px;
+  right: 60px;
+  text-align: right;
+}
+.UnitBox .name {
+  color: #bec0d2;
+}
+.UnitBox .unit {
+  color: #fff;
+}
+/*列表部分 start*/
+.ListHeader {
+  margin-bottom: 10px;
+  margin-top: 25px;
+  width: 257px;
+  height: 60px;
+  line-height: 60px;
+  color: #61a8ff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.ListLi {
+  font-weight: 700;
+  height: 56px;
+  line-height: 56px;
+  background: url('../img/box_bg.png');
+  background-size: 100% 100%;
+}
+.item {
+  width: 49%;
+  display: inline-block;
+  font-size: 16px;
+  color: #92beff;
+  text-align: left;
+  font-weight: 700;
+}
+.num {
+  width: 49%;
+  display: inline-block;
+  text-align: right;
+  font-size: 18px;
+  color: #ffffff;
+}
+.leftBox {
+  margin-right: 5px;
+}
+.leftBox .ListHeader {
+  padding-left: 14px;
+  background: url('../img/left_title_bg.png');
+}
+.leftBox .ListLi .item {
+  padding-left: 20px;
+}
+.leftBox .ListLi .num {
+  padding-right: 20px;
+}
+.leftBox .ListLi + .ListLi {
+  margin-top: 14px;
+}
+.rightBox {
+  margin-left: 5px;
+}
+.rightBox .ListHeader {
+  padding-right: 14px;
+  text-align: right;
+  background: url('../img/right_title_bg.png');
+}
+.rightBox .ListLi .item {
+  padding-right: 20px;
+  text-align: right;
+}
+.rightBox .ListLi .num {
+  padding-left: 20px;
+  text-align: left;
+}
+.rightBox .ListLi + .ListLi {
+  margin-top: 34px;
+}
+.HeaderCon {
+  line-height: 72px;
+}
+.HeaderCon .item {
+  color: #00fff0;
+  font-size: 22px;
+  padding-left: 60px;
+}
+.HeaderCon .num {
+  font-size: 22px;
+  padding-right: 34px;
+}
+/*列表部分 end*/
+/* 绘制光点随着曲线移动  模块 start*/
+.QuadraticCurveBox {
+  margin-top: 96px;
+  width: 180px;
+  height: 684px;
+  position: relative;
+}
+.QuadraticCurve {
+  width: 180px;
+  height: 684px;
+  position: absolute;
+}
+.LightBox {
+  width: 100%;
+  height: 684px;
+  z-index: 2;
+  position: relative;
+}
+.LineIcon {
+  display: inline-block;
+  width: 30px ;
+  height: 14px;
+  background: url(../img/gu_dot.png) no-repeat;
+  position: absolute;
+}
+.LineIcon0 {
+  left: 0;
+  top: 36px;
+}
+.LineIcon1 {
+  left: 0;
+  top: 108px;
+}
+.LineIcon2 {
+  left: 0;
+  top: 180px;
+}
+.LineIcon3 {
+  left: 0;
+  top: 252px;
+}
+.LineIcon4 {
+  left: 0;
+  top: 324px;
+}
+.LineIcon5 {
+  left: 0;
+  top: 396px;
+}
+.LineIcon6 {
+  left: 0;
+  top: 468px;
+}
+.LineIcon7 {
+  left: 0;
+  top: 540px;
+}
+.LineIcon8 {
+  left: 0;
+  top: 612px;
+}
+.LineIcon9 {
+  left: 0;
+  top: 684px;
+}
+.RightLineList {
+  transform: rotate(180deg);
+  margin-top: 96px;
+}
+/*绘制光点随着曲线移动  模块 end*/
+.HeaderCon {
+  width: 437px;
+  height: 91px;
+  margin: 20px auto 10px;
+  background: url(../img/top_bg.png) no-repeat;
+}
+.DownIconBox {
+  position: relative;
+  width: 42px;
+  height: 86px;
+  margin: 0 auto;
+  background: url(../img/down.png) no-repeat;
+  animation: downMove 5s infinite;
+  -moz-animation: downMove 5s infinite;
+  -webkit-animation: downMove 5s infinite;
+}
+.DownIconBox.UpSideDown {
+  margin-top: 20px;
+  transform: rotate(180deg);
+  animation: upMove 5s infinite;
+  -moz-animation: upMove 5s infinite;
+  -webkit-animation: upMove 5s infinite;
+}
+@keyframes downMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+@-moz-keyframes downMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes downMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+@keyframes upMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: -20px;
+    opacity: 1;
+  }
+}
+@-moz-keyframes upMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: -20px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes upMove {
+  from {
+    top: 0px;
+    opacity: .2;
+  }
+  to {
+    top: -20px;
+    opacity: 1;
+  }
+}
+/* 旋转模块  start*/
+.CenterMain {
+  background: url('../img/roll_di.png') no-repeat;
+  background-size: 38%;
+  background-position: 50% 57%;
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotateX(60deg) rotateZ(-180deg);
+  }
+  to {
+    -webkit-transform: rotateX(60deg) rotateZ(180deg);
+  }
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotateX(60deg) rotateZ(-180deg);
+  }
+  to {
+    -moz-transform: rotateX(60deg) rotateZ(180deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotateX(60deg) rotateZ(-180deg);
+  }
+  to {
+    transform: rotateX(60deg) rotateZ(180deg);
+  }
+}
+.RotateBox {
+  width: 810px;
+  height: 390px;
+}
+.RotateBox.outer {
+  padding: 25px 30px;
+  background: url(../img/roll_wai.png);
+}
+.RotateBox.outer .RotateItemMain {
+  width: 100%;
+  height: 100%;
+}
+.RotateBox.outer .RollName {
+  width: 175px;
+  margin-left: -50px;
+}
+.RotateBox.inner {
+  margin: 92px 167px;
+  width: 470px;
+  height: 200px;
+  position: relative;
+  top: -388px;
+  background: url(../img/roll_nei.png);
+}
+.RotateBox.inner .RotateItemMain {
+  width: 100%;
+  height: 100%;
+}
+.RotateParent {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+}
+.elipse {
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  border-radius: 50%;
+  transform: rotateX(60deg) rotateZ(0deg);
+}
+.RotateItem {
+  width: 75px;
+  height: 75px;
+  background: url(../img/blue_roll.png);
+  background-size: 100% 100%;
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  z-index: 2;
+}
+.RotateItem p {
+  color: #fff;
+  font-size: 18px;
+  line-height: 75px;
+  text-align: center;
+}
+.RotateItem .RollName {
+  color: #92beff;
+  font-size: 14px;
+  line-height: 20px;
+}
+.RotateItemInner {
+  width: 60px;
+  height: 60px;
+  background: url(../img/green_roll.png);
+  background-size: 100% 100%;
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  z-index: 1;
+}
+.RotateItemInner p {
+  color: #fff;
+  font-size: 14px;
+  line-height: 60px;
+  text-align: center;
+}
+.RotateItemInner .unit {
+  color: #00fff0;
+}
+.RotateItemInner .RollName {
+  color: #00fff0;
+  font-size: 13px;
+  line-height: 20px;
+}
+.RotateBox.center {
+  margin: 99px auto;
+  width: 183px;
+  height: 183px;
+  position: relative;
+  z-index: 8;
+  top: -732px;
+}
+.CenterRoll {
+  width: 100%;
+  height: 100%;
+  top: 30px;
+  left: 30px;
+  padding-top: 20px;
+  background: url(../img/center_roll.png);
+  border-radius: 50%;
+}
+.CenterRoll .CenterItem {
+  color: #fff;
+  font-size: 20px;
+  line-height: 48px;
+  text-align: center;
+}
+.CenterRoll .CenterNum {
+  color: #ffe400;
+  font-size: 16px;
+  line-height: 28px;
+  text-align: center;
+}
+.CenterRoll .CenterNum span {
+  color: #ffe400;
+}
+/* 旋转模块  end*/
+/* 中间底部 */
+.CenterBottom {
+  margin-top: -24px;
+}
+.LevelDataLi {
+  width: 137px;
+  height: 170px;
+  display: inline-block;
+  position: relative;
+}
+.LevelDataLi + .LevelDataLi {
+  margin-left: 160px;
+}
+.UpIconBox {
+  width: 42px;
+  height: 86px;
+  left: 50px;
+  background: url(../img/up.png) no-repeat;
+  position: absolute;
+  animation: upMove 5s infinite;
+  -moz-animation: upMove 5s infinite;
+  -webkit-animation: upMove 5s infinite;
+}
+.UpIconBox.UpSideDown {
+  margin-top: -20px;
+  transform: rotate(180deg);
+  animation: downMove 5s infinite;
+  -moz-animation: downMove 5s infinite;
+  -webkit-animation: downMove 5s infinite;
+}
+.ListItem {
+  width: 137px;
+  height: 122px;
+  text-align: center;
+  margin-top: 62px;
+  background: url(../img/bom_bg.png) no-repeat;
+  padding-top: 24px;
+}
+.ListItem .ItemNum {
+  color: #fff;
+  font-size: 22px;
+  line-height: 38px;
+}
+.ListItem .name {
+  color: #00fff0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+/* 中间底部 end*/
+/* footer */
+.footer .point {
+  min-width: 110px;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 50px;
+  cursor: pointer;
+}
+.footer .progress {
+  width: 100%;
+  height: 4px;
+  margin-top: 23px;
+  background: #1c3761;
+  position: relative;
+}
+.footer .progress .innerRadio {
+  width: 0%;
+  height: 100%;
+  background: #00fff5;
+}
+.footer .progress .light {
+  position: absolute;
+  width: 34px;
+  height: 33px;
+  left: 0%;
+  background: url(../img/light.png) no-repeat;
+  margin-left: -10px;
+  margin-top: -19px;
+}
+.footer .point:first-child {
+  text-align: left;
+}
+.footer .point:last-child {
+  text-align: right;
+}
