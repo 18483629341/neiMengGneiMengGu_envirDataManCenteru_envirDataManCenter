@@ -52,14 +52,16 @@
 			</div> -->
 		</div>
 	</header>
-
+    <!-- 中间主体 -->
 	<section class="section FlexBlock">
+		<!-- 默认单位 -->
 		<div class="UnitBox">
 			<p>
 				<span class='name'>默认单位：</span>
 			    <span class='unit'>条</span>
 			</p>
 		</div>
+
 		<!-- 左列表 -->
 		<div class="ListBox leftBox">
 			<p class="ListHeader">业务数据</p>
@@ -107,29 +109,29 @@
 				</li>
 			</ul>
 		</div>
-		<!-- 左边线调组合 -->
+
+		<!-- 左边线条组合 -->
 		<div class="LineList">
 			<!-- 绘制光点随着曲线移动  模块 start-->
 			<div class="QuadraticCurveBox ">
 				<canvas class="QuadraticCurve" id="canvas" width=180 height=684></canvas>
 				<div class="LightBox" id="LightBox">
-					<span class="LineIcon LineIcon0" id="LineIcon0"></span>
-					<span class="LineIcon LineIcon1" id="LineIcon1"></span>
-					<span class="LineIcon LineIcon2" id="LineIcon2"></span>
-					<span class="LineIcon LineIcon3" id="LineIcon3"></span>
-					<span class="LineIcon LineIcon4" id="LineIcon4"></span>
-					<span class="LineIcon LineIcon5" id="LineIcon5"></span>
-					<span class="LineIcon LineIcon6" id="LineIcon6"></span>
-					<span class="LineIcon LineIcon7" id="LineIcon7"></span>
-					<span class="LineIcon LineIcon8" id="LineIcon8"></span>
-					<span class="LineIcon LineIcon9" id="LineIcon9"></span>
+					<span class="LineIcon LineIcon0" ></span>
+					<span class="LineIcon LineIcon1" ></span>
+					<span class="LineIcon LineIcon2" ></span>
+					<span class="LineIcon LineIcon3" ></span>
+					<span class="LineIcon LineIcon4" ></span>
+					<span class="LineIcon LineIcon5" ></span>
+					<span class="LineIcon LineIcon6" ></span>
+					<span class="LineIcon LineIcon7" ></span>
+					<span class="LineIcon LineIcon8" ></span>
+					<span class="LineIcon LineIcon9" ></span>
 				</div>
 
 			</div>
-
+            <!-- 绘制光点随着曲线移动  模块 end-->
 		</div>
-		<!-- 绘制光点随着曲线移动  模块 end-->
-		</div>
+		
 		<!-- 中间所有内容的容器 -->
 		<div class="CenterBox">
 			<div class="CenterContent">
@@ -148,6 +150,7 @@
 						<div class="RotateParent ">
 							<div class="elipse">
 							</div>
+							<!-- 外环旋转球体的div,可以称之为：外环托盘 -->
 							<div class="RotateItemMain" id="OutRotateItemMain">
 								<div class="RotateItem" ><p>21234</p><p class="RollName">环境风险与应急</p></div>
 								<div class="RotateItem" ><p>4901</p><p class="RollName">核与环境</p></div>
@@ -164,6 +167,7 @@
 						<div class="RotateParent ">
 							<div class="elipse">
 							</div>
+							<!-- 内环旋转球体的div,可以称之为：内环托盘 -->
 							<div class="RotateItemMain" id="InRotateItemMain">
 								<div class="RotateItem RotateItemInner" ><p>212<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
 								<div class="RotateItem RotateItemInner" ><p>490<span class="unit">个</span></p><p class="RollName">土壤测点</p></div>
@@ -213,30 +217,35 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- 右边线条组合 -->
 		<div class="LineList RightLineList">
 			<!-- 绘制光点随着曲线移动  模块 start-->
 			<div class="QuadraticCurveBox QuadraticCurveBoxRight">
+				
 				<canvas class="QuadraticCurve" id="canvas2" width=180 height=684></canvas>
 				<script>
 					$(function(){
-						draw('canvas', 10);
+						draw('canvas', 10);//draw(elementId,需要展示的曲线条数)
 						draw('canvas2', 8)
 					})
 				</script>
 				<div class="LightBox" id="LightBoxRight">
-					<span class="LineIcon LineIcon0" id="LineIcon0"></span>
-					<span class="LineIcon LineIcon1" id="LineIcon1"></span>
-					<span class="LineIcon LineIcon2" id="LineIcon2"></span>
-					<span class="LineIcon LineIcon3" id="LineIcon3"></span>
-					<span class="LineIcon LineIcon4" id="LineIcon4"></span>
-					<span class="LineIcon LineIcon5" id="LineIcon5"></span>
-					<span class="LineIcon LineIcon6" id="LineIcon6"></span>
-					<span class="LineIcon LineIcon7" id="LineIcon7"></span>
+					<span class="LineIcon LineIcon0"></span>
+					<span class="LineIcon LineIcon1"></span>
+					<span class="LineIcon LineIcon2"></span>
+					<span class="LineIcon LineIcon3"></span>
+					<span class="LineIcon LineIcon4"></span>
+					<span class="LineIcon LineIcon5"></span>
+					<span class="LineIcon LineIcon6"></span>
+					<span class="LineIcon LineIcon7"></span>
 
 				</div>
 
 			</div>
 		</div>
+
+		<!-- 右列表 -->
 		<div class="ListBox rightBox">
 			<p class="ListHeader">业务数据</p>
 			<ul class="ListBox">
@@ -277,11 +286,11 @@
 			</ul>
 		</div>
 	</section>
+	<!-- 底部 -->
 	<footer class="footer FlexBlock">
 		<p class="point" id="LeftPoint">数据汇聚</p>
 		<div class="progress flex1">
 			<div class="innerRadio">
-				
 			</div>
 			<div class="light"></div>
 		</div>
